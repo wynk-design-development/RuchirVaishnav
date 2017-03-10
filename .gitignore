@@ -1,0 +1,11 @@
+# Logs
+npm-debug.log*
+
+# Dependencies
+node_modules
+
+# JetBrains IDE
+.idea
+
+# Build output
+/dist

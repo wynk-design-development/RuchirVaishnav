@@ -1,0 +1,62 @@
+<header class="hero">
+  <h2 class="hero-title">
+    {{pageTitle}}
+  </h2>
+</header>
+<md-card class="markdown-body">
+  <div class="padding">
+    <button md-raised-button class="md-primary" style="float: right;">New Customer</button>
+  </div>
+  <table [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" (mfSelectedEntities)="setSelectedEntities($event)">
+    <thead>
+        <tr>
+            <!-- <th>
+                <mfRowSelectorHead></mfRowSelectorHead>
+            </th> -->
+            <th>
+                <mfDefaultSorter by="name">Name</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="age">Age</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="nickname">Nickname</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="action">Action</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="address">Address</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="zip">Zip</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="email">Email</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of mf.data; let ndx = index">
+            <!-- <td><mfRowSelector [entity]="item" [checkboxId]="ndx"></mfRowSelector></td> -->
+            <td>{{item.name}}<span>{{item.jobTitle}}</span></td>
+            <td style="text-align: center;">{{item.age}}</td>
+            <td>{{item.nickname}}</td>
+            <td style="text-align: center;">
+              <input *ngIf="item.action === 'checkbox'" type="checkbox">
+              <input *ngIf="item.action === 'radio'" type="radio">
+            </td>
+            <td>{{item.address}}</td>
+            <td style="text-align: center;">{{item.zip}}</td>
+            <td>{{item.email}} <span class="red">{{item.email | emailValidation}}</span></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</md-card>
