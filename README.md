@@ -14,7 +14,7 @@
 - npm start
 
 **if having issues with npm check the following in terminal:**
-node -v
-*v7.0.0 was used*
-npm -v
-*3.10.9 was used*
+- _node -v_
+- *v7.0.0 was used*
+- _npm -v_
+- *3.10.9 was used*
